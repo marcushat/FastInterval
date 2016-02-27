@@ -14,13 +14,13 @@ var FastInterval = function(onFastInterval, freqMicroseconds, onInterval) {
 
 	var interval = setInterval(function() {
 		if(!stop) {
-			stop = !onInterval();
+			onInterval();
 		}
 		if(stop) {
 			clearInterval(interval);
 		} else {
 			for(var i = 0; i < burstSize; i++) {
-				stop = !onFastInterval();
+				onFastInterval();
 				if(stop) {
 					break;
 				};
